@@ -10,7 +10,6 @@ CREATE TABLE public.stocks (
   );
 
 ALTER TABLE public.stocks ADD CONSTRAINT stocks_pkey PRIMARY KEY (id);
-ALTER TABLE public.stocks ADD CONSTRAINT unique_symbol UNIQUE (symbol);
 
 CREATE TABLE public.users (
     "id"            serial NOT NULL,
@@ -31,10 +30,7 @@ CREATE TABLE public.watchlist (
 
 ALTER TABLE public.watchlist ADD CONSTRAINT watchlist_pkey PRIMARY KEY ("id");
 ALTER TABLE public.watchlist ADD CONSTRAINT user_symbol UNIQUE ("user_id", "symbol");
-
 ALTER TABLE public.watchlist ADD CONSTRAINT fk_user FOREIGN KEY ("user_id") REFERENCES public.users (id) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE public.watchlist ADD CONSTRAINT fk_symbol FOREIGN KEY ("symbol") REFERENCES public.stocks (symbol) ON UPDATE CASCADE ON DELETE CASCADE;
-
 
 CREATE TABLE public."sessions" (
     id          serial NOT NULL,
