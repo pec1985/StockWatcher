@@ -9,3 +9,5 @@ To run it locally:
 3. cd to webapp and `npm run dev`
 
 That's it to get started.
+
+Walkthrough video: https://youtu.be/XQP4WuR1d4E
